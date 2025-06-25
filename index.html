@@ -35,6 +35,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
     <meta name="theme-color" content="#000000" />
+     <!-- Handle redirect for SPA -->
+    <script type="text/javascript">
+      (function() {
+        // Check if we need to redirect
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.pathname) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/assets/index-DOL5nLJi.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-9MPEzJkn.css">
   </head>
