@@ -37,24 +37,9 @@
     <meta name="theme-color" content="#000000" />
 
     <script type="text/javascript">
-      // List of valid routes
-      const validRoutes = ['/', '/products', '/solutions', '/company', '/contact','/404','/login','/about'];
-      
-      // Get the current path
-      const currentPath = window.location.pathname;
-      
-      // Check if the current path is valid
-      const isValidRoute = validRoutes.includes(currentPath);
-      
-      if (isValidRoute) {
-        // If it's a valid route, store it and redirect to index.html
-        sessionStorage.redirect = currentPath;
-        window.location.href = '/';
-      } else {
-        // If it's an invalid route, store /404 path to show the 404 page
-        sessionStorage.redirect = '/404';
-        window.location.href = '/';
-      }
+      // Store the attempted path for React Router to handle
+      sessionStorage.redirect = window.location.pathname + window.location.search + window.location.hash;
+      window.location.href = '/';
     </script>
   </head>
   <body>
